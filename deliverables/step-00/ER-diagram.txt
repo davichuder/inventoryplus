@@ -1,0 +1,54 @@
+Table users {
+  id BigInt
+  username varchar(255)
+  password varchar(255)
+  role enum
+  active boolean
+}
+
+Table products {
+  id BigInt
+  name varchar(255)
+  description text
+  price decimal(10,2)
+  stock int
+  category_id BigInt
+  created_at timestamp
+}
+
+Table categories {
+  id BigInt
+  name varchar(255)
+  description text
+}
+
+Table customers {
+  id BigInt
+  name varchar(255)
+  email varchar(255)
+  phone varchar(20)
+  address text
+}
+
+Table sales {
+  id BigInt
+  customer_id BigInt
+  total decimal(10,2)
+  date timestamp
+  user_id BigInt
+  status enum
+}
+
+Table sale_items {
+  id BigInt
+  sale_id BigInt
+  product_id BigInt
+  quantity int
+  price decimal(10,2)
+}
+
+Ref: users.id < sales.user_id
+Ref: sales.customer_id >  customers.id
+Ref: categories.id > products.category_id
+Ref: products.id > sale_items.product_id
+Ref: sales.id > sale_items.sale_id

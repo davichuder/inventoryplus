@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: inventoryplus
+
+server:
+  port: 9090
