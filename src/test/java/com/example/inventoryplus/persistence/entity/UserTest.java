@@ -2,15 +2,15 @@ package com.example.inventoryplus.persistence.entity;
 
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.example.inventoryplus.CustomAssertions;
 import com.example.inventoryplus.persistence.enums.RoleEnum;
 
-public class UserTest {
+class UserTest {
     
     @Test
-    public void hasFields() {
+    void hasFields() {
         CustomAssertions.assertClassHasFields(User.class,
                 Map.of(
                         "id", Long.class,

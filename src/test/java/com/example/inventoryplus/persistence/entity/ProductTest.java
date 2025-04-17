@@ -3,14 +3,14 @@ package com.example.inventoryplus.persistence.entity;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.example.inventoryplus.CustomAssertions;
 
-public class ProductTest {
+class ProductTest {
     
     @Test
-    public void hasFields() {
+    void hasFields() {
         CustomAssertions.assertClassHasFields(Product.class,
                 Map.of(
                         "id", Long.class,

@@ -2,13 +2,13 @@ package com.example.inventoryplus.persistence.entity;
 
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.example.inventoryplus.CustomAssertions;
 
-public class CategoryTest {
+class CategoryTest {
     @Test
-    public void hasFields() {
+    void hasFields() {
         CustomAssertions.assertClassHasFields(Category.class,
                 Map.of(
                         "id", Long.class,
