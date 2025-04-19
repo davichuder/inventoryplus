@@ -1,6 +1,8 @@
 spring:
   application:
     name: inventoryplus
+  profiles:
+    active: ${ACTIVE_PROFILE}
 
 server:
   port: 9090
