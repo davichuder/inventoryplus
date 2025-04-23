@@ -1,12 +1,12 @@
 spring:
+    sql:
+        init:
+            mode: always
     jpa:
         hibernate:
             ddl-auto: validate
         database-platform: org.hibernate.dialect.MySQLDialect
         show-sql: true
-    sql:
-        init:
-            mode: always
     flyway:
         locations: classpath:db/migration/test
         enabled: true

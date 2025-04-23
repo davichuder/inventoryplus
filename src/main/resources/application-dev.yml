@@ -1,0 +1,30 @@
+spring:
+    sql:
+        init:
+            mode: always
+    datasource:
+        url: jdbc:h2:mem:devdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE;AUTO_RECONNECT=TRUE;MODE=MySQL
+        username: sa
+        password:
+        driver-class-name: org.h2.Driver
+    flyway:
+        enabled: true
+        locations: classpath:db/migration/dev
+        baseline-on-migrate: true
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+            settings:
+                trace: false
+                web-allow-others: false
+    data:
+        rest:
+            detection-strategy: annotated
+springdoc:
+    api-docs:
+        enabled: true
+    swagger-ui:
+        enabled: true
+    cache:
+        disabled: true

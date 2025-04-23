@@ -10,35 +10,25 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.MySQLContainer;
+import org.springframework.test.context.ActiveProfiles;
 
+import com.example.inventoryplus.persistence.MySQLTestContainer;
 import com.example.inventoryplus.persistence.entity.Category;
 
 @SpringBootTest
-class CategoryRepositoryTest {
-    static MySQLContainer<?> mySql = new MySQLContainer<>("mysql:8.4.5");
-
-    @DynamicPropertySource
-    static void configureProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", mySql::getJdbcUrl);
-        registry.add("spring.datasource.username", mySql::getUsername);
-        registry.add("spring.datasource.password", mySql::getPassword);
-        registry.add("spring.jpa.database-platform", () -> "org.hibernate.dialect.MySQLDialect");
-    }
-
+@ActiveProfiles("test")
+class CategoryRepositoryTest extends MySQLTestContainer {
     @Autowired
     CategoryRepository categoryRepository;
 
     @BeforeAll
     static void beforeAll() {
-        mySql.start();
+        startContainer();
     }
 
     @AfterAll
     static void afterAll() {
-        mySql.stop();
+        stopContainer();
     }
 
     @BeforeEach
