@@ -4,12 +4,12 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.inventoryplus.CustomAssertions;
+import com.example.inventoryplus.persistence.PersistenceAssertions;
 
 class RoleEnumTest {
     @Test
     void hasValues(){
-        CustomAssertions.assertEnumHasValues(RoleEnum.class,
+        PersistenceAssertions.assertEnumHasValues(RoleEnum.class,
         Set.of("ADMIN", "USER", "MANAGER"));
     }
 }

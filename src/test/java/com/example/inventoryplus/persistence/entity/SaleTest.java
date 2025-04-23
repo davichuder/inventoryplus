@@ -6,14 +6,14 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.inventoryplus.CustomAssertions;
+import com.example.inventoryplus.persistence.PersistenceAssertions;
 import com.example.inventoryplus.persistence.enums.StatusEnum;
 
 class SaleTest {
     
     @Test
     void hasFields() {
-        CustomAssertions.assertClassHasFields(Sale.class,
+        PersistenceAssertions.assertClassHasFields(Sale.class,
                 Map.of(
                         "id", Long.class,
                         "customer", Customer.class,

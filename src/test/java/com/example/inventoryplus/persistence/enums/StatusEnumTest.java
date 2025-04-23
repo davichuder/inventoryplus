@@ -4,13 +4,13 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.inventoryplus.CustomAssertions;
+import com.example.inventoryplus.persistence.PersistenceAssertions;
 
  class StatusEnumTest {
 
     @Test
      void hasValues() {
-        CustomAssertions.assertEnumHasValues(StatusEnum.class,
+        PersistenceAssertions.assertEnumHasValues(StatusEnum.class,
                 Set.of("RESERVED", "AVAILABLE", "SOLD", "PAID", "CANCELLED"));
     }
 }

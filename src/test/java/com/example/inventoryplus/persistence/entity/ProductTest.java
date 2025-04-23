@@ -5,13 +5,13 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.inventoryplus.CustomAssertions;
+import com.example.inventoryplus.persistence.PersistenceAssertions;
 
 class ProductTest {
     
     @Test
     void hasFields() {
-        CustomAssertions.assertClassHasFields(Product.class,
+        PersistenceAssertions.assertClassHasFields(Product.class,
                 Map.of(
                         "id", Long.class,
                         "name", String.class,
